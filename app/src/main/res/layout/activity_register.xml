@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <ImageView
+        android:id="@+id/otoImage"
+        android:layout_width="wrap_content"
+        android:layout_height="188dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo" />
+
+        <Button
+            android:id="@+id/login2"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_below="@id/forgetPassword"
+            android:backgroundTint="@color/orange"
+            android:text="Login"
+            tools:ignore="MissingConstraints"
+            android:layout_centerHorizontal="true" />
+
+        <AutoCompleteTextView
+            android:id="@+id/userName"
+            android:layout_width="235dp"
+            android:layout_height="44dp"
+            android:text="User Name"
+            android:layout_below="@id/otoImage"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <AutoCompleteTextView
+            android:id="@+id/password"
+            android:layout_width="235dp"
+            android:layout_height="44dp"
+            android:text="Password"
+            android:layout_below="@id/userName"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/forgetPassword"
+        android:layout_width="240dp"
+        android:layout_height="29dp"
+        android:text="forget your password/user name?"
+        android:layout_below="@id/password"
+        android:layout_centerHorizontal="true"/>
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/login2"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="352dp" />
+
+
+    <TextView
+            android:id="@+id/loginGoogle"
+            android:layout_width="200dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:layout_below="@id/login2"
+            android:text="login with google"
+            android:layout_alignTop="@id/login_facebook"
+            android:layout_toEndOf="@id/login_facebook"/>
+
+
+
+</RelativeLayout>
