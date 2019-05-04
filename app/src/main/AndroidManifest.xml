@@ -12,10 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".RegisterStep2"></activity>
+        <activity android:name=".RegisterStep1" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDrZZxELVovl1GMLcQIHz6e8gv_bgh26Fc"/>
+            android:value="AIzaSyDrZZxELVovl1GMLcQIHz6e8gv_bgh26Fc" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

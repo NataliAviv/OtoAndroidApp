@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/otoImage"
-        android:layout_width="472dp"
-        android:layout_height="323dp"
+        android:layout_width="416dp"
+        android:layout_height="329dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="8dp"
@@ -44,12 +44,12 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/Register"
+            android:id="@+id/RegisterStep1Button"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:text="Register"
             android:backgroundTint="@color/orange"
+            android:text="Register"
             android:textStyle="bold" />
     </LinearLayout>
 

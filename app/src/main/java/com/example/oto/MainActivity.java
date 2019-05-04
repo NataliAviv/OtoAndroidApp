@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-Button button_login;
+    Button button_login;
+    Button button_to_register_1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,10 +21,22 @@ Button button_login;
                 openNextActivity();
             }
         });
+        button_to_register_1=(Button)findViewById(R.id.RegisterStep1Button);
+        button_to_register_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRegisterStep1();
+            }
+        });
 
     }
     public void openNextActivity(){
         Intent intent=new Intent(this,RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    public void openRegisterStep1(){
+        Intent intent=new Intent(this,RegisterStep1.class);
         startActivity(intent);
     }
 }
