@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterStep1">
+    tools:context=".RegisterStep1Activity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -133,7 +133,7 @@
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/RegisterStep2Button"
+                android:id="@+id/buttonToRegisterStep2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

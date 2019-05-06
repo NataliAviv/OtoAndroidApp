@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 import java.util.regex.Pattern;
 
-public class RegisterStep1 extends AppCompatActivity {
+public class RegisterStep1Activity extends AppCompatActivity {
 
     Button button_to_register_2;
     EditText textEmailInput;
@@ -25,11 +25,11 @@ public class RegisterStep1 extends AppCompatActivity {
         setContentView(R.layout.activity_register_step1);
 
 
-        button_to_register_2 = (Button) findViewById(R.id.RegisterStep2Button);
+        button_to_register_2 = (Button) findViewById(R.id.buttonToRegisterStep2);
         button_to_register_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openRegisterStep2(v);
+                openRegisterStep2Activity(v);
             }
         });
 
@@ -127,11 +127,11 @@ public class RegisterStep1 extends AppCompatActivity {
         }
     }
 
-    public void openRegisterStep2(View v) {
+    public void openRegisterStep2Activity(View v) {
         if (!validateFirstName() || !validateLastName() || !validateEmail() || !validatePassword() || !validateConfirmPassword()) {
             return;
         }
-        Intent intent = new Intent(this, RegisterStep2.class);
+        Intent intent = new Intent(this, RegisterStep2Activity.class);
         startActivity(intent);
     }
 }

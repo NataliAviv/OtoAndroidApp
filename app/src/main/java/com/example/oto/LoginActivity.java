@@ -31,7 +31,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
-public class RegisterActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     CallbackManager callbackManager;
     TextView txtEmail, txtBirthday, txtFriends;
     ProgressDialog mDialog;
@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_login);
         callbackManager=CallbackManager.Factory.create();
         LoginButton loginButton = (LoginButton)findViewById(R.id.login_facebook);
         loginButton.setReadPermissions(Arrays.asList("public_profile","email","user_birthday","user_friends"));
@@ -54,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                mDialog = new ProgressDialog(RegisterActivity.this);
+                mDialog = new ProgressDialog(LoginActivity.this);
                 mDialog.setMessage("Retrieving data...");
                 mDialog.show();
                 String accesstoken = loginResult.getAccessToken().getToken();

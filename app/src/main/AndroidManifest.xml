@@ -18,18 +18,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".RegisterStep5Activity" />
+        <activity android:name=".RegisterStep4Activity" />
+        <activity android:name=".RegisterStep3Activity" />
+        <activity android:name=".RegisterStep2Activity" />
+        <activity android:name=".RegisterStep1Activity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
+        <!-- android:value="AIzaSyDrZZxELVovl1GMLcQIHz6e8gv_bgh26Fc" /> -->
         <activity
             android:name=".DriverMapActivity"
             android:label="@string/title_activity_driver_map"></activity>
         <activity android:name=".MapActivity" />
-        <activity android:name=".RegisterStep2" />
-        <activity android:name=".RegisterStep1" />
 
         <meta-data
             android:name="com.google.android.gms.version"

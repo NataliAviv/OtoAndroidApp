@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/otoImage">
 
         <Button
-            android:id="@+id/Login"
+            android:id="@+id/buttonLogin"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="230dp"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/RegisterStep1Button"
+            android:id="@+id/buttonToRegisterStep1"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="230dp"
             android:layout_height="wrap_content"
@@ -52,5 +52,15 @@
             android:text="Register"
             android:textStyle="bold" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonToAppMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
