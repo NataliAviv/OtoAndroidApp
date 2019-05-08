@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         button_to_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openNextActivity();
+                openLoginActivity();
             }
         });
         button_to_register_1=(Button)findViewById(R.id.buttonToRegisterStep1);
@@ -33,11 +33,12 @@ public class MainActivity extends AppCompatActivity {
         button_to_app_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openAppMenuActivity(v);
+                openAppMenuActivity();
             }
         });
     }
-    public void openNextActivity(){
+
+    public void openLoginActivity(){
         Intent intent=new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openAppMenuActivity(View v){
+    public void openAppMenuActivity(){
         Intent intent=new Intent(this, MenuActivity.class);
         startActivity(intent);
     }

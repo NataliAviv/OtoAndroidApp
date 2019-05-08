@@ -21,6 +21,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,6 +33,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity {
+
     CallbackManager callbackManager;
     TextView txtEmail, txtBirthday, txtFriends;
     ProgressDialog mDialog;
@@ -40,24 +42,36 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode,resultCode,data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        callbackManager=CallbackManager.Factory.create();
-        LoginButton loginButton = (LoginButton)findViewById(R.id.login_facebook);
-        loginButton.setReadPermissions(Arrays.asList("public_profile","email","user_birthday","user_friends"));
+
+        callbackManager = CallbackManager.Factory.create();
+
+        txtEmail = (TextView) findViewById(R.id.txtEmail);
+
+        /*txtBirthday = (TextView) findViewById(R.id.txtBirthday);
+        txtFriends = (TextView) findViewById(R.id.txtFriends);
+        imgAvatar = (ImageView) findViewById(R.id.avatar);*/
+
+        LoginButton loginButton = (LoginButton) findViewById(R.id.login_facebook);
+        loginButton.setReadPermissions(Arrays.asList("public_profile", "email", "user_birthday", "user_friends"));
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+
                 mDialog = new ProgressDialog(LoginActivity.this);
                 mDialog.setMessage("Retrieving data...");
                 mDialog.show();
-                String accesstoken = loginResult.getAccessToken().getToken();
+
+                //String accesstoken = loginResult.getAccessToken().getToken();
+
+
                 GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
@@ -68,41 +82,54 @@ public class LoginActivity extends AppCompatActivity {
                 });
                 //Request Graph API
                 Bundle parameters = new Bundle();
-                parameters.putString("fields","id,email,birthday,friends");
+                parameters.putString("fields", "id,email,birthday,friends");
+
+
                 request.setParameters(parameters);
                 request.executeAsync();
+
+                openMenuActivity();
+
             }
+
             @Override
             public void onCancel() {
 
             }
+
             @Override
             public void onError(FacebookException error) {
             }
         });
+
         //If already login
-        if(AccessToken.getCurrentAccessToken() != null) {
+        if (AccessToken.getCurrentAccessToken() != null) {
             txtEmail.setText(AccessToken.getCurrentAccessToken().getUserId());
         }
-        printKeyHash();
+        //printKeyHash();
     }
+
     private void getData(JSONObject object) {
         try {
-            URL profile_picture = new URL("https://graph.facebook.com/"+object.getString("id")+"/picture?width=250&height=250");
+            URL profile_picture = new URL("https://graph.facebook.com/" + object.getString("id") + "/picture?width=250&height=250");
             txtEmail.setText(object.getString("email"));
+            /*Picasso.with(this).load(profile_picture.toString()).into(imgAvatar);
+            txtBirthday.setText(object.getString("birthday"));
+            txtFriends.setText("Friends: " + object.getJSONObject("friends").getJSONObject("summary").getString("total_count"));*/
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
+
     private void printKeyHash() {
         try {
             PackageInfo info = getPackageManager().getPackageInfo("com.example.oto", PackageManager.GET_SIGNATURES);
-            for(Signature signature:info.signatures) {
+            for (Signature signature : info.signatures) {
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
-                Log.d("KeyHash", Base64.encodeToString(md.digest(),Base64.DEFAULT));
+                Log.d("KeyHash", Base64.encodeToString(md.digest(), Base64.DEFAULT));
             }
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -110,4 +137,10 @@ public class LoginActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    public void openMenuActivity(){
+        Intent intent=new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
+
 }

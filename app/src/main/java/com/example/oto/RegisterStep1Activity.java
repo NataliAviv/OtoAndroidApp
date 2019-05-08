@@ -128,9 +128,9 @@ public class RegisterStep1Activity extends AppCompatActivity {
     }
 
     public void openRegisterStep2Activity(View v) {
-        if (!validateFirstName() || !validateLastName() || !validateEmail() || !validatePassword() || !validateConfirmPassword()) {
+        /*if (!validateFirstName() || !validateLastName() || !validateEmail() || !validatePassword() || !validateConfirmPassword()) {
             return;
-        }
+        }*/  //Cancel comment after moving on all register steps!
         Intent intent = new Intent(this, RegisterStep2Activity.class);
         startActivity(intent);
     }

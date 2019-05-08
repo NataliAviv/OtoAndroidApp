@@ -23,15 +23,15 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo" />
 
-        <Button
-            android:id="@+id/login2"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:layout_below="@id/forgetPassword"
-            android:backgroundTint="@color/orange"
-            android:text="Login"
-            tools:ignore="MissingConstraints"
-            android:layout_centerHorizontal="true" />
+    <Button
+        android:id="@+id/login2"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_below="@id/forgetPassword"
+        android:backgroundTint="@color/orange"
+        android:text="Login"
+        tools:ignore="MissingConstraints"
+        android:layout_centerHorizontal="true" />
 
     <AutoCompleteTextView
         android:id="@+id/userName"
@@ -73,15 +73,39 @@
 
 
     <TextView
-            android:id="@+id/loginGoogle"
-            android:layout_width="200dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="20dp"
-            android:orientation="vertical"
-            android:layout_below="@id/login2"
-            android:text="login with google"
-            android:layout_alignTop="@id/login_facebook"
-            android:layout_toEndOf="@id/login_facebook"/>
+        android:id="@+id/loginGoogle"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical"
+        android:layout_below="@id/login2"
+        android:text="login with google"
+        android:layout_alignTop="@id/login_facebook"
+        android:layout_toEndOf="@id/login_facebook"/>
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="250dp"
+        android:layout_height="250dp" />
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/txtBirthday"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/txtFriends"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 
