@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Oto</string>
+
     <string name="facebook_app_id">668339430289330</string>
     <string name="fb_login_protocol_scheme">fb668339430289330</string>
     <string name="title_activity_driver_map">Map</string>
+    <string name="title_activity_passenger_maps">Map</string>
 
 </resources>
