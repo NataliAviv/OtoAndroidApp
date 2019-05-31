@@ -38,11 +38,20 @@ public class LoginActivity extends AppCompatActivity {
     TextView txtEmail, txtBirthday, txtFriends;
     ProgressDialog mDialog;
     ImageView imgAvatar;
+    static final int FACEBOOK_SIGN = 456;
+    static final int GOOGLE_SIGN = 123;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
+        //Google Login
+        if(requestCode == GOOGLE_SIGN) {
+
+        }
+        //Facebook Login
+        else {
+            callbackManager.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @Override
@@ -58,10 +67,10 @@ public class LoginActivity extends AppCompatActivity {
         txtFriends = (TextView) findViewById(R.id.txtFriends);
         imgAvatar = (ImageView) findViewById(R.id.avatar);*/
 
-        LoginButton loginButton = (LoginButton) findViewById(R.id.login_facebook);
-        loginButton.setReadPermissions(Arrays.asList("public_profile", "email", "user_birthday", "user_friends"));
+        LoginButton loginFacebookButton = (LoginButton) findViewById(R.id.login_facebook);
+        loginFacebookButton.setReadPermissions(Arrays.asList("public_profile", "email", "user_birthday", "user_friends"));
 
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        loginFacebookButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
 

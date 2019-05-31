@@ -4,5 +4,5 @@
     <string name="fb_login_protocol_scheme">fb2580963348644065</string>
     <string name="title_activity_driver_map">Map</string>
     <string name="title_activity_passenger_maps">Map</string>
-
+    <string name="login">Login</string>
 </resources>

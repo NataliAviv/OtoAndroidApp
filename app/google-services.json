@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "618646980038",
+    "firebase_url": "https://otomobileapp.firebaseio.com",
+    "project_id": "otomobileapp",
+    "storage_bucket": "otomobileapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618646980038:android:74df0b622083e66e",
+        "android_client_info": {
+          "package_name": "com.example.oto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618646980038-s98b8btgpj0e9rof0rmhmvo287ijboob.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.oto",
+            "certificate_hash": "f121179ac5583321dc679e933e650b62e930eb1d"
+          }
+        },
+        {
+          "client_id": "618646980038-49qv2p649usal958m06bl2pvo8kpmft3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6k8mRASmg0xSJfrUNwLd66CNrEw7DnBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618646980038-49qv2p649usal958m06bl2pvo8kpmft3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

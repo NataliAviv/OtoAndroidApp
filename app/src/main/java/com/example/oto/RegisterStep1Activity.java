@@ -10,6 +10,32 @@ import android.widget.EditText;
 
 import java.util.regex.Pattern;
 
+
+
+
+
+
+/*import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
+import com.mongodb.ServerAddress;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.MongoCollection;
+import org.bson.Document;
+import java.util.Arrays;
+import com.mongodb.Block;
+import com.mongodb.client.MongoCursor;
+import static com.mongodb.client.model.Filters.*;
+import com.mongodb.client.result.DeleteResult;
+import static com.mongodb.client.model.Updates.*;
+import com.mongodb.client.result.UpdateResult;
+import java.util.ArrayList;
+import java.util.List;*/
+
+
+
+
+
+
 public class RegisterStep1Activity extends AppCompatActivity {
 
     Button button_to_register_2;
@@ -38,6 +64,21 @@ public class RegisterStep1Activity extends AppCompatActivity {
         textConfirmPasswordInput = findViewById(R.id.confimPasswordEditText);
         textFirstName = findViewById(R.id.firstNameEditText);
         textLastName = findViewById(R.id.lastNameEditText);
+
+
+        /*MongoClient mongoClient = new MongoClient("mongodb+srv://dbUserValeria:AaValeria123!@cluster0-i5ugy.mongodb.net/test?retryWrites=true");
+        MongoDatabase database = mongoClient.getDatabase("oto");
+        MongoCollection<Document> collection = database.getCollection("users");
+        Document doc = new Document("firstname", "MongoDB")
+                .append("lastname", "database")
+                .append("email", "ziv.cohen.34@gmai.com")
+                .append("password", "1q2w3e4r")
+                .append("phone", "09005512")
+                .append("address","Yaven");
+        collection.insertOne(doc);*/
+
+
+
     }
 
     public static String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
@@ -128,9 +169,9 @@ public class RegisterStep1Activity extends AppCompatActivity {
     }
 
     public void openRegisterStep2Activity(View v) {
-        /*if (!validateFirstName() || !validateLastName() || !validateEmail() || !validatePassword() || !validateConfirmPassword()) {
+        if(!validateFirstName() || !validateLastName() || !validateEmail() || !validatePassword() || !validateConfirmPassword()) {
             return;
-        }*/  //Cancel comment after moving on all register steps!
+        }
         Intent intent = new Intent(this, RegisterStep2Activity.class);
         startActivity(intent);
     }

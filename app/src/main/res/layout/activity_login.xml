@@ -24,14 +24,34 @@
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/login2"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
         android:layout_below="@id/forgetPassword"
+        android:layout_centerVertical="true"
         android:backgroundTint="@color/orange"
-        android:text="Login"
+        android:text="@string/login"
         tools:ignore="MissingConstraints"
         android:layout_centerHorizontal="true" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/login_google"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:orientation="vertical" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_facebook"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/login_google"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp" />
 
     <AutoCompleteTextView
         android:id="@+id/userName"
@@ -59,21 +79,10 @@
         android:layout_below="@id/password"
         android:layout_centerHorizontal="true"/>
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/login_facebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/login2"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="352dp" />
 
 
-    <TextView
-        android:id="@+id/loginGoogle"
+    <!-- <TextView
+        android:id="@+id/login_google"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_marginLeft="20dp"
@@ -81,7 +90,7 @@
         android:layout_below="@id/login2"
         android:text="login with google"
         android:layout_alignTop="@id/login_facebook"
-        android:layout_toEndOf="@id/login_facebook"/>
+        android:layout_toEndOf="@id/login_facebook"/> -->
 
     <ImageView
         android:id="@+id/avatar"
@@ -93,7 +102,8 @@
         android:id="@+id/txtEmail"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/txtBirthday"
