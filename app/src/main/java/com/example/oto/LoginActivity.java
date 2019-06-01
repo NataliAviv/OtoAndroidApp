@@ -10,9 +10,19 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -21,7 +31,6 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //Google Login
-        if(requestCode == GOOGLE_SIGN) {
+        if (requestCode == GOOGLE_SIGN) {
 
         }
         //Facebook Login
@@ -58,6 +67,62 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Toast.makeText(this,App.url,Toast.LENGTH_LONG).show();
+
+        /*   Start communication with server   */
+
+        Button btn_login = findViewById(R.id.login_button);
+        final EditText email_login = findViewById(R.id.email_login);
+        final EditText password_login = findViewById(R.id.password_login);
+
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                JSONObject obj = new JSONObject();
+                try {
+                    obj.put("email", email_login.getText().toString());
+                    obj.put("password", password_login.getText().toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                        (Request.Method.POST, App.url + "user/login", obj, new Response.Listener<JSONObject>() {
+
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                try {
+                                    JSONObject user = (JSONObject) response.get("user");
+                                    if (user.has("token")) {
+                                        String token = user.getString("token");
+                                        App.setToken(token);
+                                        Toast.makeText(LoginActivity.this, App.getToken(), Toast.LENGTH_LONG).show();
+                                        openMenuActivity();
+                                    } else {
+                                        Toast.makeText(LoginActivity.this, "No Such User", Toast.LENGTH_LONG).show();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                error.printStackTrace();
+                                Toast.makeText(LoginActivity.this, "Login Server Failed", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                RequestQueue queue = Volley.newRequestQueue(App.getContext());
+                queue.add(jsonObjectRequest);
+
+            }
+        });
+
+        /*   Finish communication with server   */
+
 
         callbackManager = CallbackManager.Factory.create();
 
@@ -147,8 +212,8 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void openMenuActivity(){
-        Intent intent=new Intent(this, MenuActivity.class);
+    public void openMenuActivity() {
+        Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
